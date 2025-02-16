@@ -1,0 +1,916 @@
+{
+	"info": {
+		"_postman_id": "a491d567-9197-4ccb-a96a-70346f46dfaa",
+		"name": "LuisVentas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41477858"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Diego",
+											"type": "text"
+										},
+										{
+											"key": "surname",
+											"value": "Garcia",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "dgarcia",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "dgarcia@kinal.edu.gt",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Lqie1983#",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "123456789123",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "CLIENT",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"token\", data.token)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "userLoggin",
+											"value": "jhernandez",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Lqie1983#",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAll",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:3626/v1/user/all",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"user",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateProfile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Juan1",
+											"type": "text"
+										},
+										{
+											"key": "surname",
+											"value": "Hernandez",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "jhernandez",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "jhernandez@kinal.edu.gt",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "123456789123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/v1/user/adminUpdate/67af485d55c0f7c799d50131",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"user",
+										"adminUpdate",
+										"67af485d55c0f7c799d50131"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "client",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Luis",
+											"type": "text"
+										},
+										{
+											"key": "surname",
+											"value": "Garcia",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "lgarcia",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "lgarcia@kinal.edu.gt",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Lqie1983#",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "123456789123",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "CLIENT",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"token\", data.token)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "userLoggin",
+											"value": "dgarcia",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Lqie1983#",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getProfile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:3626/v1/user/67af5013043fc571aa30efd8",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"user",
+										"67af5013043fc571aa30efd8"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Gorra azul",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "fea",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "stock",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "67afe4d99576fed245bc54db",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/v1/product/Add",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"product",
+										"Add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAll",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:3626/v1/product/All",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"product",
+										"All"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOne",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:3626/v1/product/one/67afefde012e1421835d6160",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"product",
+										"one",
+										"67afefde012e1421835d6160"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Gorra gris",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "linda",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "stock",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "67afe4d99576fed245bc54db",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/v1/product/Update/67afefde012e1421835d6160",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"product",
+										"Update",
+										"67afefde012e1421835d6160"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OutStock",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:3626/v1/product/OutOfStock",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"product",
+										"OutOfStock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Gorra gris",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "linda",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "stock",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "67afe4d99576fed245bc54db",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/v1/product/Delete/67b261623d1edd5cec28b453",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"product",
+										"Delete",
+										"67b261623d1edd5cec28b453"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SearchByName",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Gorra azul",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/v1/product/Search?name=Gorra azul",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"product",
+										"Search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Gorra azul"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SearchCategory",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:3626/v1/product/Category/67afe4d99576fed245bc54db",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"product",
+										"Category",
+										"67afe4d99576fed245bc54db"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Tela",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "linda",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/category/Add",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"category",
+								"Add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/category/getAll",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"category",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Telaa",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "linda",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/category/update/67af7d3ba933d7524a835458",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"category",
+								"update",
+								"67af7d3ba933d7524a835458"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Telaa",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "linda",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/category/delete/67af7afc195dbd40544a0355",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"category",
+								"delete",
+								"67af7afc195dbd40544a0355"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
