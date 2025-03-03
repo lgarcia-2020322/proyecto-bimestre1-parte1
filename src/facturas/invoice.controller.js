@@ -16,7 +16,7 @@ export const getUserInvoices = async (req, res) => {
 
         return res.send({
             success: true,
-            message: 'User invoices retrieved successfully',
+            message: 'User invoices retrieved successfull',
             total: invoices.length,
             invoices
         })
