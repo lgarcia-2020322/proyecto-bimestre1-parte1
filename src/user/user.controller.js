@@ -2,7 +2,7 @@ import User from './user.model.js'
 import Invoice from '../facturas/invoice.model.js'
 import { encrypt, checkPassword } from '../../utils/encrypt.js'
 
-// Obtener todos los usuarios (solo admin)
+// Obtener todos los usuarios (admin)
 export const getAll = async (req, res) => {
     const { limit = 20, skip = 0 } = req.query
     try {
