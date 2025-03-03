@@ -22,22 +22,22 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "Diego",
+											"value": "Ricardo",
 											"type": "text"
 										},
 										{
 											"key": "surname",
-											"value": "Garcia",
+											"value": "Yani",
 											"type": "text"
 										},
 										{
 											"key": "username",
-											"value": "dgarcia",
+											"value": "ryani",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "dgarcia@kinal.edu.gt",
+											"value": "ryani@kinal.edu.gt",
 											"type": "text"
 										},
 										{
@@ -93,13 +93,31 @@
 									"urlencoded": [
 										{
 											"key": "userLoggin",
-											"value": "jhernandez",
+											"value": "admin",
 											"type": "text"
 										},
 										{
 											"key": "password",
-											"value": "Lqie1983#",
+											"value": "Lqie1983-",
 											"type": "text"
+										},
+										{
+											"key": "userLoggin",
+											"value": "rhernandez",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "userLoggin",
+											"value": "ryani",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "Lqie1983#",
+											"type": "text",
+											"disabled": true
 										}
 									]
 								},
@@ -189,7 +207,7 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "Juan1",
+											"value": "Ricardo",
 											"type": "text"
 										},
 										{
@@ -199,12 +217,12 @@
 										},
 										{
 											"key": "username",
-											"value": "jhernandez",
+											"value": "rhernandez",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "jhernandez@kinal.edu.gt",
+											"value": "rhernandez@kinal.edu.gt",
 											"type": "text"
 										},
 										{
@@ -215,7 +233,7 @@
 									]
 								},
 								"url": {
-									"raw": "localhost:3626/v1/user/adminUpdate/67af485d55c0f7c799d50131",
+									"raw": "localhost:3626/v1/user/update/67c5c296586be94b846f67e6",
 									"host": [
 										"localhost"
 									],
@@ -223,8 +241,154 @@
 									"path": [
 										"v1",
 										"user",
-										"adminUpdate",
-										"67af485d55c0f7c799d50131"
+										"update",
+										"67c5c296586be94b846f67e6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateRol",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "role",
+											"value": "ADMIN",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/v1/user/updateRole/67c5c296586be94b846f67e6",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"user",
+										"updateRole",
+										"67c5c296586be94b846f67e6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatePass",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "currentPassword",
+											"value": "Lqie1983#",
+											"type": "text"
+										},
+										{
+											"key": "newPassword",
+											"value": "Lqie1983-",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3626/v1/user/updatePassword/67c5c296586be94b846f67e6",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"user",
+										"updatePassword",
+										"67c5c296586be94b846f67e6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:3626/v1/user/delete/67c5c3c6671be498ca5fd85a",
+									"host": [
+										"localhost"
+									],
+									"port": "3626",
+									"path": [
+										"v1",
+										"user",
+										"delete",
+										"67c5c3c6671be498ca5fd85a"
 									]
 								}
 							},
@@ -235,110 +399,6 @@
 				{
 					"name": "client",
 					"item": [
-						{
-							"name": "Register",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "name",
-											"value": "Luis",
-											"type": "text"
-										},
-										{
-											"key": "surname",
-											"value": "Garcia",
-											"type": "text"
-										},
-										{
-											"key": "username",
-											"value": "lgarcia",
-											"type": "text"
-										},
-										{
-											"key": "email",
-											"value": "lgarcia@kinal.edu.gt",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Lqie1983#",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "123456789123",
-											"type": "text"
-										},
-										{
-											"key": "role",
-											"value": "CLIENT",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "localhost:3626/register",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"register"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "login",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var data = JSON.parse(responseBody);\r",
-											"postman.setGlobalVariable(\"token\", data.token)"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "userLoggin",
-											"value": "dgarcia",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Lqie1983#",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "localhost:3626/login",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
 						{
 							"name": "getProfile",
 							"event": [
@@ -370,7 +430,7 @@
 									"urlencoded": []
 								},
 								"url": {
-									"raw": "localhost:3626/v1/user/67af5013043fc571aa30efd8",
+									"raw": "localhost:3626/v1/user/67c5ad3e5ad0a8186ba152e2",
 									"host": [
 										"localhost"
 									],
@@ -378,361 +438,7 @@
 									"path": [
 										"v1",
 										"user",
-										"67af5013043fc571aa30efd8"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Products",
-					"item": [
-						{
-							"name": "add",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "name",
-											"value": "Gorra azul",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "fea",
-											"type": "text"
-										},
-										{
-											"key": "price",
-											"value": "150",
-											"type": "text"
-										},
-										{
-											"key": "stock",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "67afe4d99576fed245bc54db",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "localhost:3626/v1/product/Add",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"v1",
-										"product",
-										"Add"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "getAll",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": []
-								},
-								"url": {
-									"raw": "localhost:3626/v1/product/All",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"v1",
-										"product",
-										"All"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "getOne",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": []
-								},
-								"url": {
-									"raw": "localhost:3626/v1/product/one/67afefde012e1421835d6160",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"v1",
-										"product",
-										"one",
-										"67afefde012e1421835d6160"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "name",
-											"value": "Gorra gris",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "linda",
-											"type": "text"
-										},
-										{
-											"key": "price",
-											"value": "150",
-											"type": "text"
-										},
-										{
-											"key": "stock",
-											"value": "20",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "67afe4d99576fed245bc54db",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "localhost:3626/v1/product/Update/67afefde012e1421835d6160",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"v1",
-										"product",
-										"Update",
-										"67afefde012e1421835d6160"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "OutStock",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": []
-								},
-								"url": {
-									"raw": "localhost:3626/v1/product/OutOfStock",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"v1",
-										"product",
-										"OutOfStock"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "name",
-											"value": "Gorra gris",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "linda",
-											"type": "text"
-										},
-										{
-											"key": "price",
-											"value": "150",
-											"type": "text"
-										},
-										{
-											"key": "stock",
-											"value": "20",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "67afe4d99576fed245bc54db",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "localhost:3626/v1/product/Delete/67b261623d1edd5cec28b453",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"v1",
-										"product",
-										"Delete",
-										"67b261623d1edd5cec28b453"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "SearchByName",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "name",
-											"value": "Gorra azul",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "localhost:3626/v1/product/Search?name=Gorra azul",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"v1",
-										"product",
-										"Search"
-									],
-									"query": [
-										{
-											"key": "name",
-											"value": "Gorra azul"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "SearchCategory",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": []
-								},
-								"url": {
-									"raw": "localhost:3626/v1/product/Category/67afe4d99576fed245bc54db",
-									"host": [
-										"localhost"
-									],
-									"port": "3626",
-									"path": [
-										"v1",
-										"product",
-										"Category",
-										"67afe4d99576fed245bc54db"
+										"67c5ad3e5ad0a8186ba152e2"
 									]
 								}
 							},
@@ -761,12 +467,12 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "Tela",
+									"value": "New era",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "linda",
+									"value": "gorras de beisbol",
 									"type": "text"
 								}
 							]
@@ -787,7 +493,7 @@
 					"response": []
 				},
 				{
-					"name": "add Copy",
+					"name": "getall",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -851,7 +557,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3626/v1/category/update/67af7d3ba933d7524a835458",
+							"raw": "localhost:3626/v1/category/update/67c5af5987bec23dccc76fd1",
 							"host": [
 								"localhost"
 							],
@@ -860,14 +566,14 @@
 								"v1",
 								"category",
 								"update",
-								"67af7d3ba933d7524a835458"
+								"67c5af5987bec23dccc76fd1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "update Copy",
+					"name": "delete",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -895,7 +601,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3626/v1/category/delete/67af7afc195dbd40544a0355",
+							"raw": "localhost:3626/v1/category/delete/67c5af5987bec23dccc76fd1",
 							"host": [
 								"localhost"
 							],
@@ -904,7 +610,700 @@
 								"v1",
 								"category",
 								"delete",
-								"67af7afc195dbd40544a0355"
+								"67c5af5987bec23dccc76fd1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "factura",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/invoice/checkout",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"invoice",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getfacturas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/invoice/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"invoice",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detalles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/invoice/67c5b3df6095f74a2e3cce95",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"invoice",
+								"67c5b3df6095f74a2e3cce95"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "CANCELLED",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "PENDING",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "COMPLETED",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/invoice/update/67c5c54d671be498ca5fd8a7",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"invoice",
+								"update",
+								"67c5c54d671be498ca5fd8a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "carrito",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "productId",
+									"value": "67c5c48e671be498ca5fd873",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/cart/add",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"cart",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gettall",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/cart/getCart",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"cart",
+								"getCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "productId",
+									"value": "67c5b2eb58364d152711c7b3",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/cart/update",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"cart",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "productId",
+									"value": "67c5b2eb58364d152711c7b3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/cart/remove",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"cart",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Gorra NY",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Ajustable",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67c5c42c671be498ca5fd86c",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/product/Add",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"product",
+								"Add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/product/All",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"product",
+								"All"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/product/One/67c5b2eb58364d152711c7b3",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"product",
+								"One",
+								"67c5b2eb58364d152711c7b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Gorra gris",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "linda",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "150",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67afe4d99576fed245bc54db",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/product/Update/67c5b2eb58364d152711c7b3",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"product",
+								"Update",
+								"67c5b2eb58364d152711c7b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OutStock",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/product/OutOfStock",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"product",
+								"OutOfStock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "best",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/product/BestSelling",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"product",
+								"BestSelling"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Gorra gris",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "linda",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "150",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67afe4d99576fed245bc54db",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/product/Delete/67c5b239c37dfb1677110ef8",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"product",
+								"Delete",
+								"67c5b239c37dfb1677110ef8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchByName",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Gorra azul",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/product/Search?name=Gorra gris",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"product",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Gorra gris"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchCategory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3626/v1/product/Category/67c5af7387bec23dccc76fda",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"product",
+								"Category",
+								"67c5af7387bec23dccc76fda"
 							]
 						}
 					},

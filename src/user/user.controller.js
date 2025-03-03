@@ -222,11 +222,13 @@ export const deleteAccount = async (req, res) => {
             })
         }
 
-        await User.findByIdAndDelete(id)
+        // Cambiar el estado del usuario a inactivo en lugar de eliminarlo
+        user.status = false
+        await user.save()
 
         return res.send({
             success: true,
-            message: 'User deleted successfully'
+            message: 'User status updated to inactive'
         })
     } catch (err) {
         console.error(err)
