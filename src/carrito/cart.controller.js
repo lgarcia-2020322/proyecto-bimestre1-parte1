@@ -15,7 +15,7 @@ export const getCart = async (req, res) => {
 
         return res.send({
             success: true,
-            message: 'Cart retrieved successfully',
+            message: 'Cart retrieved successflly',
             cart
         })
     } catch (err) {

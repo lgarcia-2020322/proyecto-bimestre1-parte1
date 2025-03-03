@@ -31,7 +31,7 @@ api.post(
     addToCart
 )
 
-// Actualizar cantidad de productos en el carrito
+// Actualiza cantidad de productos en el carrito
 api.put(
     '/update',
     [
