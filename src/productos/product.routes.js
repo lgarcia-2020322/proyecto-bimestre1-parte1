@@ -8,7 +8,8 @@ import {
     deleteProduct,
     searchProductsByName,
     getBestSellingProducts,
-    getProductsByCategory
+    getProductsByCategory,
+    getOutOfStockProducts 
 } from './product.controller.js'
 
 import { isAdmin, validateJwt } from '../../middlewares/validate.jwt.js'
@@ -56,6 +57,14 @@ api.delete(
         isAdmin
     ],
     deleteProduct
+)
+
+api.get(
+    '/OutOfStock',
+    [
+        validateJwt
+    ],
+    getOutOfStockProducts
 )
 
 // Buscar productos por nombr

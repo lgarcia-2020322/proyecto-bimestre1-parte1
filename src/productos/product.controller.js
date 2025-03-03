@@ -275,3 +275,30 @@ export const getProductsByCategory = async (req, res) => {
         })
     }
 }
+
+export const getOutOfStockProducts = async (req, res) => {
+    try {
+        const products = await Product.find({ stock: 0 })
+
+        if (products.length === 0) {
+            return res.status(404).send({
+                success: false,
+                message: 'No out of stock products found'
+            })
+        }
+
+        return res.send({
+            success: true,
+            message: 'Out of stock products retrieved successfully',
+            total: products.length,
+            products
+        })
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({
+            success: false,
+            message: 'General error',
+            err
+        })
+    }
+}
