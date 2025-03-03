@@ -1,18 +1,17 @@
-import { Router } from "express";
+import { Router } from 'express'
 
 import { 
     createProduct, 
     getAllProducts, 
     getOneProduct, 
     updateProduct, 
-    StockProducts, 
     deleteProduct,
-    getBestProducts,
-    ProductsByName,
+    searchProductsByName,
+    getBestSellingProducts,
     getProductsByCategory
+} from './product.controller.js'
 
-} from "./product.controller.js";
-import { isAdmin, validateJwt } from "../../middlewares/validate.jwt.js";
+import { isAdmin, validateJwt } from '../../middlewares/validate.jwt.js'
 
 const api = Router()
 
@@ -31,7 +30,7 @@ api.get(
         validateJwt
     ],
     getAllProducts
-);
+)
 
 api.get(
     '/One/:id',
@@ -39,7 +38,7 @@ api.get(
         validateJwt
     ],
     getOneProduct
-);
+)
 
 api.put(
     '/Update/:id',
@@ -48,15 +47,7 @@ api.put(
         isAdmin
     ],
     updateProduct
-);
-
-api.get(
-    '/OutOfStock',
-    [
-        validateJwt
-    ],
-    StockProducts
-);
+)
 
 api.delete(
     '/Delete/:id',
@@ -65,32 +56,33 @@ api.delete(
         isAdmin
     ],
     deleteProduct
-);
-// buscar los mejores
-api.get(
-    '/Best',
-    [
-        validateJwt
-    ],
-    getBestProducts
-);
+)
 
-// Buscar productos por nombre 
+// Buscar productos por nombre
 api.get(
     '/Search',
     [
         validateJwt
     ],
-    ProductsByName
-);
+    searchProductsByName
+)
 
-// productos por categoría
+// Obtener los productos más vendidos
+api.get(
+    '/BestSelling',
+    [
+        validateJwt
+    ],
+    getBestSellingProducts
+)
+
+// Obtener productos por categoría
 api.get(
     '/Category/:categoryId',
     [
         validateJwt
     ],
     getProductsByCategory
-);
+)
 
 export default api

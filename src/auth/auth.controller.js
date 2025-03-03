@@ -5,44 +5,55 @@ import { checkPassword, encrypt } from '../../utils/encrypt.js'
 import { generateJwt } from '../../utils/jwt.js'
 
 
-export const register = async (req, res)=>{
+export const register = async (req,res)=>{
+    
     try {
+        const existAdmin = await User.findOne({role: 'ADMIN'})
+        if(!existAdmin){
+            const adminData = {
+            name: "admin",
+            surname: "admin",
+            username: "admin",
+            email: "admin@admin.com",
+            password: await encrypt("Lqie1983#"),
+            phone: "12345678",
+            role: "ADMIN",
+            status: true
+            } 
+            const adminUser = new User(adminData)
+            await adminUser.save()
+            console.log("Admin created successfully")
+        }
+        
         let data = req.body
         let user = new User(data)
-
         user.password = await encrypt(user.password)
-        user.role = 'CLIENT'
+        user.role = 'CLIENT' 
         await user.save()
-        return res.send(
+        return res.send (
             {
-                succes: true,
-                message: `Registred succsesfully | can be logged with username: ${user.username}`
+                succses: true,
+                message: `Registered successfully, can be logged with username: ${user.username}`
             }
         )
-    }catch(err){
+    } catch(err){
         console.error(err)
-        return res.status(500).send(
-            {
-                succes: false,
-                message: 'General error with registering user', 
-                err
-            }
-        )
+        return res.status(500).send({message: 'General error', err})
     }
 }
 
-export const login = async(req,res)=>{
-    try {
+export const login = async(req, res)=>{
+    try{
         let { userLoggin, password } = req.body
         let user = await User.findOne(
             {
-                $or: [ 
+                $or: [
                     {email: userLoggin},
                     {username: userLoggin}
                 ]
             }
         ) 
-        if(user && await checkPassword(user.password, password)){
+        if(user && await checkPassword(user.password, password)) {
             let loggedUser = {
                 uid: user._id,
                 name: user.name,
@@ -52,21 +63,15 @@ export const login = async(req,res)=>{
             let token = await generateJwt(loggedUser)
             return res.send(
                 {
-                    succes: true,
                     message: `Welcome ${user.name}`,
                     loggedUser,
                     token
                 }
             )
         }
+        return res.status(400).send({message: 'Wrong email or password'})
     }catch(err){
         console.error(err)
-        return res.status(500).send(
-            {
-                succes: false,
-                message: 'General error with registering user', 
-                err
-            }
-        )
+        return res.status(500).send({message: 'General error with login function'})
     }
 }

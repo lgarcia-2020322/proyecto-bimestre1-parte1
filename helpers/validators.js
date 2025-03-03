@@ -1,8 +1,8 @@
 
 
-import { body } from "express-validator"
+import { body, param, query } from "express-validator"
 import { validateErrors } from "./validate.error.js"
-import { existUsername, existEmail } from "./db.validators.js"
+import { existUsername, existEmail, existUserById, existProductById } from "./db.validators.js"
 
 export const registerValidator = [
     body('name', 'Name cannot be empty')
@@ -57,5 +57,59 @@ export const UpdateValidator = [
     body('phone', 'Phone cannot be empty or is not a valid phone')
         .notEmpty()
         .isMobilePhone(),
+    validateErrors
+]
+
+export const updatePasswordValidator = [
+    body('currentPassword', 'Current password cannot be empty')
+        .notEmpty(),
+    body('newPassword', 'New password must be at least 8 characters long')
+        .notEmpty()
+        .isLength({ min: 8 }),
+    validateErrors
+]
+
+// Validación para actualizar el rol
+export const updateRoleValidator = [
+    body('role', 'Role must be either ADMIN or CLIENT')
+        .isIn(['ADMIN', 'CLIENT']),
+    body('id').custom(existUserById), // Verifica si el usuario existe antes de cambiar el rol
+    validateErrors
+]
+
+export const searchProductValidator = [
+    query('name', 'Name query parameter is required')
+        .notEmpty(),
+    validateErrors
+]
+
+export const categoryProductValidator = [
+    param('categoryId', 'Category ID is required')
+        .notEmpty()
+        .isMongoId(),
+    validateErrors
+]
+
+export const cartValidator = [
+    body('productId', 'Product ID is required')
+        .notEmpty()
+        .isMongoId()
+        .custom(existProductById),
+    body('quantity', 'Quantity must be at least 1')
+        .notEmpty()
+        .isInt({ min: 1 }),
+    validateErrors
+]
+
+export const updateInvoiceValidator = [
+    body('status', 'Invalid status')
+        .isIn(['PENDING', 'COMPLETED', 'CANCELLED']),
+    validateErrors
+]
+
+export const removeFromCartValidator = [
+    body('productId', 'Product ID is required')
+        .notEmpty()
+        .isMongoId(),
     validateErrors
 ]

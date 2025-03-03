@@ -8,6 +8,8 @@ import authRoutes from '../src/auth/auth.routes.js'
 import userRoutes from '../src/user/user.routes.js'
 import categoryRoutes from '../src/categorias/category.routes.js'
 import productRoutes from '../src/productos/product.routes.js'
+import invoiceRoutes from '../src/facturas/invoice.routes.js'
+import cartRoutes from '../src/carrito/cart.routes.js'
 import { limiter } from '../middlewares/rate.limit.js'
 
 
@@ -25,6 +27,8 @@ const routes = (app)=>{
     app.use('/v1/user', userRoutes)
     app.use('/v1/category', categoryRoutes)
     app.use ('/v1/product', productRoutes)
+    app.use ('/v1/invoice', invoiceRoutes)
+    app.use ('/v1/cart', cartRoutes)
 }
 
 export const initServer = async()=>{
@@ -36,5 +40,5 @@ export const initServer = async()=>{
         console.log(`Server running in port ${process.env.PORT}`)
     }catch(err){
         console.error('Server init failed', err)
-    }
+    } 
 }

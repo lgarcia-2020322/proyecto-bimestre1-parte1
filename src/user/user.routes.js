@@ -1,12 +1,19 @@
-import { Router } from "express";
-import { getAll, getProfile } from './user.controller.js'
-import { isAdmin, validateJwt } from '../../middlewares/validate.jwt.js';
-import { UpdateValidator } from "../../helpers/validators.js";
+import { Router } from 'express'
 
+import { 
+    getAll, 
+    getProfile, 
+    updateProfile, 
+    updatePassword, 
+    updateRole, 
+    deleteAccount 
+} from './user.controller.js'
+
+import { isAdmin, validateJwt } from '../../middlewares/validate.jwt.js'
+import { UpdateValidator } from '../../helpers/validators.js'
 
 const api = Router()
 
-// rutas
 api.get(
     '/all',
     [
@@ -17,7 +24,7 @@ api.get(
 )
 
 api.get(
-    '/:id', 
+    '/:id',
     [
         validateJwt
     ],
@@ -25,12 +32,38 @@ api.get(
 )
 
 api.put(
-    '/adminUpdate/:id',
+    '/update/:id',
     [
         validateJwt,
-        UpdateValidator,
+        UpdateValidator
+    ],
+    updateProfile
+)
+
+
+api.put(
+    '/updatePassword/:id',
+    [
+        validateJwt
+    ],
+    updatePassword
+)
+
+api.put(
+    '/updateRole/:id',
+    [
+        validateJwt,
         isAdmin
-    ]
+    ],
+    updateRole
+)
+
+api.delete(
+    '/delete/:id',
+    [
+        validateJwt
+    ],
+    deleteAccount
 )
 
 export default api

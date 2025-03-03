@@ -176,14 +176,25 @@ export const deleteProduct = async (req, res) => {
 
 // clientes
 
-export const getBestProducts = async (req, res) => {
+export const getBestSellingProducts = async (req, res) => {
     try {
-        const products = await Product.find().sort({ sales: -1 }).limit(10)
+        const products = await Product.find({ status: true })
+            .sort({ stock: 1 })
+            .limit(10)
+
+        if (products.length === 0) {
+            return res.status(404).send({
+                success: false,
+                message: 'No products found'
+            })
+        }
+
         return res.send({
             success: true,
+            message: 'Best-selling products retrieved successfully',
+            total: products.length,
             products
-        }
-    )
+        })
     } catch (err) {
         console.error(err)
         return res.status(500).send({
@@ -194,51 +205,73 @@ export const getBestProducts = async (req, res) => {
     }
 }
 
-export const ProductsByName = async (req, res) => {
-        try {
-            const { name } = req.query; // Obtiene el nombre desde query params
-    
-            if (!name) {
-                return res.status(400).send({
-                    success: false,
-                    message: "Name is required"
-                });
-            }
-    
-            const products = await Product.find(
-                { 
-                name: { $regex: `^${name}`, $options: "i",},
-                status: true,  // si no esta eliminado el producto no lo muestra 
-            }
-        ) //validacion para que busque por el nombre exacto
-    
-            return res.send({
-                success: true,
-                products
-            });
-        } catch (err) {
-            console.error(err);
-            return res.status(500).send({
-                success: false,
-                message: "General error",
-                err
-            });
-        }
-    };
+// Buscar productos por nombre (coincidencia parcial)
+export const searchProductsByName = async (req, res) => {
+    try {
+        const { name } = req.query
 
-    export const getProductsByCategory = async (req, res) => {
-        try {
-            const products = await Product.find({ category: req.params.categoryId })
-            return res.send({
-                success: true,
-                products
-            })
-        } catch (err) {
-            console.error(err)
-            return res.status(500).send({
+        if (!name) {
+            return res.status(400).send({
                 success: false,
-                message: 'General error',
-                err
+                message: 'Name is required'
             })
         }
+
+        const products = await Product.find(
+            { 
+                name: { $regex: name, $options: 'i' }, 
+                status: true
+            }
+        )
+
+        if (products.length === 0) {
+            return res.status(404).send({
+                success: false,
+                message: 'No products found'
+            })
+        }
+
+        return res.send({
+            success: true,
+            message: 'Products found',
+            total: products.length,
+            products
+        })
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({
+            success: false,
+            message: 'General error',
+            err
+        })
     }
+}
+
+export const getProductsByCategory = async (req, res) => {
+    try {
+        const { categoryId } = req.params
+
+        const products = await Product.find({ category: categoryId, status: true })
+
+        if (products.length === 0) {
+            return res.status(404).send({
+                success: false,
+                message: 'No products found for this category'
+            })
+        }
+
+        return res.send({
+            success: true,
+            message: 'Products retrieved successfully',
+            total: products.length,
+            products
+        })
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({
+            success: false,
+            message: 'General error',
+            err
+        })
+    }
+}
