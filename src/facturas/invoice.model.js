@@ -17,7 +17,7 @@ const invoiceSchema = Schema(
                 quantity: {
                     type: Number,
                     required: true,
-                    min: [1, 'Quantity must be at least 1']
+                    min: [1, 'Quantity must be at leas 1']
                 },
                 price: {
                     type: Number,
