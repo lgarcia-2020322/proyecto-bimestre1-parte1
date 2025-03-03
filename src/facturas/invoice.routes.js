@@ -30,7 +30,7 @@ api.get(
     getInvoiceDetails
 )
 
-// Completar compra (Generar factura)
+// Completar compra(Generar factura)
 api.post(
     '/checkout',
     [
