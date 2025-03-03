@@ -58,7 +58,7 @@ api.delete(
     deleteProduct
 )
 
-// Buscar productos por nombre
+// Buscar productos por nombr
 api.get(
     '/Search',
     [

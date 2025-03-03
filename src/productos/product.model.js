@@ -25,7 +25,7 @@ const productSchema = Schema(
         category: {
             type: Schema.Types.ObjectId,
             ref: 'Category',
-            required: [true, 'category is required']
+            required: [true, 'category is requird']
         },
         status: {
             type: Boolean, 
