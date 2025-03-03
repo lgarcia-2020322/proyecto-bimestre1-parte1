@@ -71,16 +71,22 @@ export const completePurchase = async (req, res) => {
         }
 
         let total = 0
+
         for (const item of cart.products) {
+            // Verificar si hay stock
             if (item.product.stock < item.quantity) {
                 return res.status(400).send({
                     success: false,
-                    message: `Not enough stock for ${item.product.name}`
+                    message: `Not enough stock for ${item.product.name}, available: ${item.product.stock}`
                 })
             }
+            
             total += item.product.price * item.quantity
+        }
+
+        for (const item of cart.products) {
             item.product.stock -= item.quantity
-            await item.product.save()
+            await item.product.save() // Guardar 
         }
 
         const invoice = new Invoice({
@@ -94,6 +100,8 @@ export const completePurchase = async (req, res) => {
         })
 
         await invoice.save()
+
+        // Eliminar el carrito después de la compra
         await Cart.findOneAndDelete({ user: req.user.uid })
 
         return res.send({
