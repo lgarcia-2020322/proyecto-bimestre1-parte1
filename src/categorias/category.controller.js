@@ -19,7 +19,7 @@ export const createCategory = async (req, res) => {
             return res.status(400).send(
                 {
                 success: false,
-                message: 'Category with this name already exists'
+                message: 'Category with this name already exist'
             }
         )
         }
