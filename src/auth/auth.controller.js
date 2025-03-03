@@ -22,7 +22,7 @@ export const register = async (req,res)=>{
             } 
             const adminUser = new User(adminData)
             await adminUser.save()
-            console.log("Admin created successfully")
+            console.log("Admin created successfull") 
         }
         
         let data = req.body
