@@ -108,7 +108,7 @@ export const updateInvoiceValidator = [
 ]
 
 export const removeFromCartValidator = [
-    body('productId', 'Product ID is required')
+    body('productId', 'Product ID is require')
         .notEmpty()
         .isMongoId(),
     validateErrors
