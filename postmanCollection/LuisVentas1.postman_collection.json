@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "a491d567-9197-4ccb-a96a-70346f46dfaa",
-		"name": "LuisVentas",
+		"_postman_id": "95620446-5910-4e3e-8160-6fbb169cd34f",
+		"name": "LuisVentas1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "41477858"
 	},
@@ -99,7 +99,8 @@
 										{
 											"key": "password",
 											"value": "Lqie1983-",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "userLoggin",
@@ -116,8 +117,7 @@
 										{
 											"key": "password",
 											"value": "Lqie1983#",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										}
 									]
 								},
@@ -379,7 +379,7 @@
 									"urlencoded": []
 								},
 								"url": {
-									"raw": "localhost:3626/v1/user/delete/67c5c3c6671be498ca5fd85a",
+									"raw": "localhost:3626/v1/user/delete/67c64b89d5ac634cc16ea7f8",
 									"host": [
 										"localhost"
 									],
@@ -388,7 +388,7 @@
 										"v1",
 										"user",
 										"delete",
-										"67c5c3c6671be498ca5fd85a"
+										"67c64b89d5ac634cc16ea7f8"
 									]
 								}
 							},
@@ -430,7 +430,7 @@
 									"urlencoded": []
 								},
 								"url": {
-									"raw": "localhost:3626/v1/user/67c5ad3e5ad0a8186ba152e2",
+									"raw": "localhost:3626/v1/user/67c64bb7d5ac634cc16ea805",
 									"host": [
 										"localhost"
 									],
@@ -438,7 +438,7 @@
 									"path": [
 										"v1",
 										"user",
-										"67c5ad3e5ad0a8186ba152e2"
+										"67c64bb7d5ac634cc16ea805"
 									]
 								}
 							},
@@ -467,7 +467,7 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "New era",
+									"value": "nw",
 									"type": "text"
 								},
 								{
@@ -548,11 +548,6 @@
 									"key": "description",
 									"value": "linda",
 									"type": "text"
-								},
-								{
-									"key": "id",
-									"value": "",
-									"type": "text"
 								}
 							]
 						},
@@ -601,7 +596,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3626/v1/category/delete/67c5af5987bec23dccc76fd1",
+							"raw": "localhost:3626/v1/category/delete/67c64bdad5ac634cc16ea80f",
 							"host": [
 								"localhost"
 							],
@@ -610,7 +605,7 @@
 								"v1",
 								"category",
 								"delete",
-								"67c5af5987bec23dccc76fd1"
+								"67c64bdad5ac634cc16ea80f"
 							]
 						}
 					},
@@ -703,7 +698,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "localhost:3626/v1/invoice/67c5b3df6095f74a2e3cce95",
+							"raw": "localhost:3626/v1/invoice/67c64da8d5ac634cc16ea877",
 							"host": [
 								"localhost"
 							],
@@ -711,7 +706,7 @@
 							"path": [
 								"v1",
 								"invoice",
-								"67c5b3df6095f74a2e3cce95"
+								"67c64da8d5ac634cc16ea877"
 							]
 						}
 					},
@@ -740,18 +735,18 @@
 								{
 									"key": "status",
 									"value": "PENDING",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "status",
 									"value": "COMPLETED",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3626/v1/invoice/update/67c5c54d671be498ca5fd8a7",
+							"raw": "localhost:3626/v1/invoice/update/67c64da8d5ac634cc16ea877",
 							"host": [
 								"localhost"
 							],
@@ -760,7 +755,57 @@
 								"v1",
 								"invoice",
 								"update",
-								"67c5c54d671be498ca5fd8a7"
+								"67c64da8d5ac634cc16ea877"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "CANCELLED",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "PENDING",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "COMPLETED",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3626/v1/invoice/cancel/67c64f57d662dc3b67971786",
+							"host": [
+								"localhost"
+							],
+							"port": "3626",
+							"path": [
+								"v1",
+								"invoice",
+								"cancel",
+								"67c64f57d662dc3b67971786"
 							]
 						}
 					},
@@ -787,12 +832,12 @@
 							"urlencoded": [
 								{
 									"key": "productId",
-									"value": "67c5c48e671be498ca5fd873",
+									"value": "67c64c2ed5ac634cc16ea827",
 									"type": "text"
 								},
 								{
 									"key": "quantity",
-									"value": "5",
+									"value": "2",
 									"type": "text"
 								}
 							]
@@ -902,7 +947,7 @@
 							"urlencoded": [
 								{
 									"key": "productId",
-									"value": "67c5b2eb58364d152711c7b3",
+									"value": "67c64c2ed5ac634cc16ea827",
 									"type": "text"
 								}
 							]
@@ -943,12 +988,12 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "Gorra NY",
+									"value": "Gorra McLaren",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Ajustable",
+									"value": "ajustable ",
 									"type": "text"
 								},
 								{
@@ -958,12 +1003,12 @@
 								},
 								{
 									"key": "stock",
-									"value": "10",
+									"value": "0",
 									"type": "text"
 								},
 								{
 									"key": "category",
-									"value": "67c5c42c671be498ca5fd86c",
+									"value": "67c64bced5ac634cc16ea80b",
 									"type": "text"
 								}
 							]
@@ -1035,7 +1080,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "localhost:3626/v1/product/One/67c5b2eb58364d152711c7b3",
+							"raw": "localhost:3626/v1/product/One/67c64c60d5ac634cc16ea834",
 							"host": [
 								"localhost"
 							],
@@ -1044,7 +1089,7 @@
 								"v1",
 								"product",
 								"One",
-								"67c5b2eb58364d152711c7b3"
+								"67c64c60d5ac634cc16ea834"
 							]
 						}
 					},
@@ -1186,36 +1231,10 @@
 						],
 						"body": {
 							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "Gorra gris",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "linda",
-									"type": "text"
-								},
-								{
-									"key": "price",
-									"value": "150",
-									"type": "text"
-								},
-								{
-									"key": "stock",
-									"value": "20",
-									"type": "text"
-								},
-								{
-									"key": "category",
-									"value": "67afe4d99576fed245bc54db",
-									"type": "text"
-								}
-							]
+							"urlencoded": []
 						},
 						"url": {
-							"raw": "localhost:3626/v1/product/Delete/67c5b239c37dfb1677110ef8",
+							"raw": "localhost:3626/v1/product/Delete/67c64cb3d5ac634cc16ea844",
 							"host": [
 								"localhost"
 							],
@@ -1224,7 +1243,7 @@
 								"v1",
 								"product",
 								"Delete",
-								"67c5b239c37dfb1677110ef8"
+								"67c64cb3d5ac634cc16ea844"
 							]
 						}
 					},
@@ -1255,7 +1274,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3626/v1/product/Search?name=Gorra gris",
+							"raw": "localhost:3626/v1/product/Search?name=Gorra red",
 							"host": [
 								"localhost"
 							],
@@ -1268,7 +1287,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "Gorra gris"
+									"value": "Gorra red"
 								}
 							]
 						}
@@ -1294,7 +1313,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "localhost:3626/v1/product/Category/67c5af7387bec23dccc76fda",
+							"raw": "localhost:3626/v1/product/Category/67c64bced5ac634cc16ea80b",
 							"host": [
 								"localhost"
 							],
@@ -1303,7 +1322,7 @@
 								"v1",
 								"product",
 								"Category",
-								"67c5af7387bec23dccc76fda"
+								"67c64bced5ac634cc16ea80b"
 							]
 						}
 					},
