@@ -155,3 +155,48 @@ export const updateInvoice = async (req, res) => {
         })
     }
 }
+
+export const cancelInvoice = async (req, res) => {
+    try {
+        const { id } = req.params
+
+        const invoice = await Invoice.findById(id).populate('products.product')
+
+        if (!invoice) {
+            return res.status(404).send({
+                success: false,
+                message: 'Invoice not found'
+            })
+        }
+
+        if (invoice.status === 'CANCELLED') {
+            return res.status(400).send({
+                success: false,
+                message: 'Invoice is already cancelled'
+            })
+        }
+
+        // Devolver stock de los productos
+        for (const item of invoice.products) {
+            item.product.stock += item.quantity
+            await item.product.save()
+        }
+
+        // Actualizar estado de la factura
+        invoice.status = 'CANCELLED'
+        await invoice.save()
+
+        return res.send({
+            success: true,
+            message: 'Invoice cancelled successfully and stock restored',
+            invoice
+        })
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({
+            success: false,
+            message: 'General error',
+            err
+        })
+    }
+}

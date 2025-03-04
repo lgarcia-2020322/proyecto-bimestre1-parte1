@@ -4,7 +4,8 @@ import {
     getUserInvoices, 
     getInvoiceDetails, 
     completePurchase, 
-    updateInvoice 
+    updateInvoice,
+    cancelInvoice
 } from './invoice.controller.js'
 
 import { isAdmin, validateJwt } from '../../middlewares/validate.jwt.js'
@@ -48,6 +49,14 @@ api.put(
         updateInvoiceValidator
     ],
     updateInvoice
+)
+
+api.put(
+    '/cancel/:id', 
+    [
+        validateJwt
+    ],
+     cancelInvoice
 )
 
 export default api
