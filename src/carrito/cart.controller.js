@@ -57,9 +57,9 @@ export const addToCart = async (req, res) => {
         const productIndex = cart.products.findIndex(item => item.product.toString() === productId)
 
         if (productIndex !== -1) {
-            cart.products[productIndex].quantity += quantity
+            cart.products[productIndex].quantity = Number(cart.products[productIndex].quantity) + Number(quantity)
         } else {
-            cart.products.push({ product: productId, quantity })
+            cart.products.push({ product: productId, quantity: Number(quantity) })
         }
 
         await cart.save()
